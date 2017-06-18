@@ -1,0 +1,36 @@
+<h1>  from user component {{name}} </h1>
+      <p><strong>Email :</strong> {{email}}</p>
+      <p><strong>Adress :</strong> {{adress.street}} {{adress.city}} , {{adress.state}} </p>
+      <button (click)="toggleHobbies()" >{{show}} hobbies</button>
+      <div *ngIf="showHobbies">
+        <h3>hobbies</h3>
+        <ul>
+            <li *ngFor=" let hobby of hobbies; let i = index">
+              {{hobby}}
+              <button (click)="deleteHobbie(i)">Delete  </button>
+            </li>
+         </ul>
+         <form (submit)="addHobby(safa.value)">
+          <label>Add hobbies :</label>
+          <input type="text"  #safa />
+        </form>
+      </div>
+      <hr/>
+      <form>
+      <label>Name :</label>
+      <input type="text" name="name" [(ngModel)]="name"  />
+      <br/>
+      <label>email :</label>
+      <input type="text" name="email" [(ngModel)]="email"  />
+      <br/>
+      <label>addresse :</label>
+      <input type="text" name="street" [(ngModel)]="adress.street"  />
+
+      </form>
+      <hr/>
+      <div *ngFor="let post of posting" >
+          <h3> title : {{post.title}}</h3>
+          <p>  body : {{post.body}}</p>
+            <hr/>
+      </div>
+       
